@@ -1,14 +1,27 @@
+from pathlib import Path
 import pandas as pd
-import streamlit as st  
-import numpy as np
+import streamlit as st
 
-def fetch_data(species, total_sleep, life_span):
-    data_frames = []
-    for species in species_:
-        data_frames.append(species_data)
-    
-    data = pd.concat(data_frames, axis=1, keys=tickers)
-    data.columns = species
-    return data
+st.title("How much do mammals sleep?")
 
+csv_path = Path(__file__).with_name("mammals.csv")
+mammals = pd.read_csv(csv_path)
+
+species_options = mammals["species"].dropna().unique().tolist()
+
+selected_species = st.multiselect(
+    "Choose mammals to compare", 
+    options=species_options,
+    default=species_options[:5],)
+
+if selected_species: 
+        selected = mammals[mammals["species"].isin(selected_species)]
+
+        st.subheader("total sleep")
+        st.bar_chart(selected, x="species", y="total_sleep", horizontal =True)
+
+        st.subheader("Life Span")
+        st.bar_chart(selected= x="species, y="life_span", horizontal=True)
+else: 
+        st.info("Choose at least one species to see the charts.")
 
