@@ -21,7 +21,7 @@ if selected_species:
         st.bar_chart(selected, x="species", y="total_sleep", horizontal =True)
 
         st.subheader("Life Span")
-        st.bar_chart(selected= x="species, y="life_span", horizontal=True)
+        st.bar_chart(selected= x="species", y="life_span", horizontal=True)
 else: 
         st.info("Choose at least one species to see the charts.")
 
