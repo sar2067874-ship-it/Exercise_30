@@ -26,7 +26,7 @@ if selected_species:
         st.bar_chart(sleep_chart_data, x="Species", y="Life Span in Years", horizontal=True)
     
         st.subheader("Exposure by Mammal")
-        st.bar_chart(sleep_chart_data, x="Exposure to the Elements", y="Species")
+        st.bar_chart(sleep_chart_data, x="Species", y="Exposure to the Elements")
     
 else: 
         st.info("Choose at least one species to see the charts.")
