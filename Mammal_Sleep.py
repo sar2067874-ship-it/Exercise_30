@@ -25,13 +25,7 @@ else:
 
 st.subheader("Exposure by Mammal")
 st.bar_chart(selected, x="species", y="exposure")
-one_species = st.selectbox("Choose a mammal", options=species_options)
-species_data = mammals.loc[mammals["species"] == one_species, ["total_sleep", "exposure"]].dropna()
-if species_data.empty:
-    st.info(f"Sleep or exposire data is unavailable for {one_species}.")
-else: 
-    st.write(one_species)
-    st.scatter_chart(species_data, x="exposure", y="total_sleep")
+
 
 
 
