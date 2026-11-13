@@ -24,7 +24,7 @@ if selected_species:
         st.bar_chart(selected, x="species", y="life_span", horizontal=True)
 
         st.subheader("Exposure")
-        st.line_chart()
+        st.line_chart("Species", "Exposure")
 else: 
         st.info("Choose at least one species to see the charts.")
 
