@@ -26,7 +26,7 @@ if selected_species:
         st.bar_chart(sleep_chart_data, x="Species", y="Life Span in Years", horizontal=True)
     
         st.subheader("Exposure While Sleeping")
-        st.markdown("1 is the least exposed to the elements/most protected) \n"
+        st.markdown("1 is the least exposed to the elements/most protected)" \n
                     "5 is the most exposed to the elements/least protected)")
         st.bar_chart(sleep_chart_data, x="Species", y="Exposure to the Elements")
     
