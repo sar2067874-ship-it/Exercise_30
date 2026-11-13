@@ -2,7 +2,7 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-st.title("How much do mammals sleep and what is their lifespan?")
+st.title("Mammal Sleep, Lifespan, and Exposure")
 
 csv_path = Path(__file__).with_name("mammals.csv")
 mammals = pd.read_csv(csv_path)
@@ -17,14 +17,17 @@ selected_species = st.multiselect(
 if selected_species: 
         selected = mammals[mammals["species"].isin(selected_species)]
 
-        st.subheader("total sleep")
+        st.subheader("Total Sleep")
         st.bar_chart(selected, x="species", y="total_sleep", horizontal =True)
 
         st.subheader("Life Span")
         st.bar_chart(selected, x="species", y="life_span", horizontal=True)
+
+        st.subheader("Exposure")
+        st.line_chart()
 else: 
         st.info("Choose at least one species to see the charts.")
 
 
-st.subheader("
+
 
