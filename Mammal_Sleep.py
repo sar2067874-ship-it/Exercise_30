@@ -16,7 +16,8 @@ selected_species = st.multiselect(
 
 if selected_species: 
         selected = mammals[mammals["species"].isin(selected_species)]
-        sleep_chart_data = selected.rename(columns={"total_sleep": "Sleep in Hours"}, {"life_span": "Life Span in Years"}, "exposure": "Exposure to the Elements"})
+        sleep_chart_data = selected.rename(columns={"total_sleep": "Sleep in Hours", "life_span": "Life Span in Years", "exposure": "Exposure to the Elements". 
+                                                   "species": "Species" })
         
         st.subheader("Total Sleep")
         st.bar_chart(selected, x="species", y="total_sleep", horizontal =True)
