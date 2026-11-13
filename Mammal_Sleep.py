@@ -20,13 +20,13 @@ if selected_species:
                                                    "species": "Species" })
         
         st.subheader("Total Sleep")
-        st.bar_chart(selected, x="species", y="total_sleep", horizontal =True)
+        st.bar_chart(selected, x="Species", y="Sleep in Hours", horizontal =True)
     
         st.subheader("Life Span")
-        st.bar_chart(selected, x="species", y="life_span", horizontal=True)
+        st.bar_chart(selected, x="Species", y="Life Span in Years", horizontal=True)
     
         st.subheader("Exposure by Mammal")
-        st.bar_chart(selected, x="species", y="exposure")
+        st.bar_chart(selected, x="Species", y="Exposure to the Elements")
     
 else: 
         st.info("Choose at least one species to see the charts.")
