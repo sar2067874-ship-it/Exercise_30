@@ -16,17 +16,21 @@ selected_species = st.multiselect(
 
 if selected_species: 
         selected = mammals[mammals["species"].isin(selected_species)]
-
         st.subheader("Total Sleep")
         st.bar_chart(selected, x="species", y="total_sleep", horizontal =True)
-
         st.subheader("Life Span")
         st.bar_chart(selected, x="species", y="life_span", horizontal=True)
-
-        st.subheader("Exposure")
-        st.line_chart("Species", "Exposure")
 else: 
         st.info("Choose at least one species to see the charts.")
+
+st.subheader("Total Sleep and Exposure")
+one_species = st.selectbox("Choose a mammal", options=species_options)
+species_data = mammals.loc[mammals["species"] == one_species, ["total_sleep", "exposure"]].dropna()
+if species_data.empty:
+    st.info(f"Sleep or exposire data is unavailable for {one_species}.")
+else: 
+    st.write(one_species)
+    st.scatter_chart(species_data, x="exposure", y="total_sleep")
 
 
 
