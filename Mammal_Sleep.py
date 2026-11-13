@@ -23,7 +23,8 @@ if selected_species:
 else: 
         st.info("Choose at least one species to see the charts.")
 
-st.subheader("Total Sleep and Exposure")
+st.subheader("Exposure by Mammal")
+st.barchart(selected, x="species", y="exposure")
 one_species = st.selectbox("Choose a mammal", options=species_options)
 species_data = mammals.loc[mammals["species"] == one_species, ["total_sleep", "exposure"]].dropna()
 if species_data.empty:
